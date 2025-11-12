@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f9f9f9;
+  color: #1c1c1c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Noise effect */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*
+               data:image/svg+xml:
+               1. baseFrequency='1.0' (instead of 0.5) - smaller dots of noize
+            */
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj4KICAgIDxmaWx0ZXIgaWQ9Im4iPgogICAgICAgIDxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIxLjAiIG51bU9jdGF2ZXM9IjEiIHN0aWNoVGlsZXM9InN0aWNoIi8+CiAgICA8L2ZpbHRlcj4KICAgIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iMC41Ii8+Cjwvc3ZnPg==");
+  background-size: 100px 100px;
+  /*
+               Changes in opacity:
+               2. opacity: 0.6; (Inst 0.15) - more visible noise
+            */
+  pointer-events: none;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  filter: blur(0.5px);
+}
+
+.logo {
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  width: 150px; /* Adjust size as needed */
+  z-index: 2;
+}
+
+.background-lines-png {
+  position: absolute;
+  top: 3vh; /* Отступ 5% от верхней границы */
+  left: 0;
+  width: 100%;
+  height: 80vh; /* Уменьшаем высоту до 90% от высоты вьюпорта */
+  object-fit: fill; /* Используем contain, чтобы изображение целиком помещалось и не обрезалось */
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
+}
+
+h1 {
+  font-size: 5.5em;
+  margin-top: 1.1em;
+  margin-bottom: 0.2em;
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  color: #1c1c1c;
+  filter: blur(0.5px);
+}
+
+h2 {
+  font-size: 1.7em;
+  margin-top: 0;
+  font-weight: 500;
+  color: 1C1C1C;
+}
+
+p {
+  font-size: 1.1em;
+  margin-top: 2.7em;
+  font-weight: 400;
+  color: 1C1C1C;
+}
+
+.social-links {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-links a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.social-links a img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.social-links a:hover {
+  background-color: transparent;
+  width: 8%;
+  height: 8%;
+  opacity: 0.7;
+}
+
+.contact-mail {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+  color: #1c1c1c;
+}
+
+.contact-mail a {
+  color: #1c1c1c;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-mail a:hover {
+  text-decoration: underline;
+}
+
+/* ==================================== */
+/* 9. Adaptations (MEDIA QUERIES) */
+/* ==================================== */
+
+@media (max-width: 768px) {
+  .container {
+    filter: blur(0.4px);
+  }
+
+  .logo {
+    top: 50px;
+    left: 50px;
+    width: 150px;
+  }
+
+  h1 {
+    font-size: 3.5em;
+    line-height: 0.9;
+    margin-bottom: 0.3em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  p {
+    font-size: 1em;
+    margin-top: 4em;
+  }
+
+  .background-lines-png {
+    top: 10vh;
+    height: 80vh;
+  }
+
+  .social-links {
+    margin-top: 4em;
+    gap: 15px;
+  }
+
+  .social-links a {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.5em;
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+
+  p {
+    font-size: 0.8em;
+  }
+
+  .logo {
+    top: 30px;
+    left: 30px;
+    width: 100px;
+  }
+
+  .social-links {
+    margin-top: 4em;
+    gap: 15px;
+  }
+
+  .contact-mail {
+    font-size: 0.8em;
+  }
+}
+
+@media (min-width: 1400px) {
+  h1 {
+    font-size: 6em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1.3em;
+  }
+
+  .logo {
+    top: 50px;
+    left: 70px;
+    width: 200px;
+  }
+
+  .social-links {
+    margin-top: 4em;
+    gap: 10px;
+  }
+
+  .social-links a {
+    width: 45px;
+    height: 45px;
+  }
+
+  .contact-mail {
+    font-size: 1.2em;
+  }
+}
